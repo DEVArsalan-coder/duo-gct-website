@@ -1,0 +1,402 @@
+/*
+ * GCT Website - Layout System
+ * Grid, flexbox utilities, and layout components
+ */
+
+/* ==========================================
+   MAIN LAYOUT STRUCTURE
+   ========================================== */
+
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    /* Critical for preventing flex item overflow */
+    margin-left: var(--side-nav-width);
+    transition: margin-left var(--duration-normal) var(--ease-default);
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 100px;
+    }
+}
+
+/* ==========================================
+   CONTAINER
+   ========================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+}
+
+.container--narrow {
+    max-width: var(--container-md);
+}
+
+.container--wide {
+    max-width: var(--container-2xl);
+}
+
+.container--full {
+    max-width: none;
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+}
+
+/* ==========================================
+   SECTIONS
+   ========================================== */
+
+.section {
+    padding-top: var(--space-4xl);
+    padding-bottom: var(--space-4xl);
+    position: relative;
+    /* Ensure it contains absolute elements */
+}
+
+.section--hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--space-5xl);
+    padding-bottom: var(--space-3xl);
+}
+
+.section--compact {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+}
+
+.section--alt {
+    background-color: var(--color-parchment);
+}
+
+.section--cream {
+    background-color: var(--color-cream);
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--space-3xl);
+}
+
+.section-header--left {
+    text-align: left;
+    margin-left: 0;
+}
+
+.section-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-copper);
+    margin-bottom: var(--space-md);
+}
+
+.section-title {
+    margin-bottom: var(--space-lg);
+}
+
+.section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-slate);
+    line-height: var(--leading-relaxed);
+}
+
+/* ==========================================
+   GRID SYSTEM
+   ========================================== */
+
+.grid {
+    display: grid;
+    gap: var(--space-xl);
+}
+
+.grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Asymmetric Grids */
+.grid--editorial {
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-3xl);
+}
+
+.grid--editorial-reverse {
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-3xl);
+}
+
+.grid--sidebar {
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-2xl);
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+    .grid--4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid--editorial,
+    .grid--editorial-reverse {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .grid--2,
+    .grid--3,
+    .grid--4 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid--sidebar {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   FLEXBOX UTILITIES
+   ========================================== */
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.gap-sm {
+    gap: var(--space-sm);
+}
+
+.gap-md {
+    gap: var(--space-md);
+}
+
+.gap-lg {
+    gap: var(--space-lg);
+}
+
+.gap-xl {
+    gap: var(--space-xl);
+}
+
+.gap-2xl {
+    gap: var(--space-2xl);
+}
+
+/* ==========================================
+   SPACING UTILITIES
+   ========================================== */
+
+/* Margin */
+.mt-sm {
+    margin-top: var(--space-sm);
+}
+
+.mt-md {
+    margin-top: var(--space-md);
+}
+
+.mt-lg {
+    margin-top: var(--space-lg);
+}
+
+.mt-xl {
+    margin-top: var(--space-xl);
+}
+
+.mt-2xl {
+    margin-top: var(--space-2xl);
+}
+
+.mt-3xl {
+    margin-top: var(--space-3xl);
+}
+
+.mb-sm {
+    margin-bottom: var(--space-sm);
+}
+
+.mb-md {
+    margin-bottom: var(--space-md);
+}
+
+.mb-lg {
+    margin-bottom: var(--space-lg);
+}
+
+.mb-xl {
+    margin-bottom: var(--space-xl);
+}
+
+.mb-2xl {
+    margin-bottom: var(--space-2xl);
+}
+
+.mb-3xl {
+    margin-bottom: var(--space-3xl);
+}
+
+/* Padding */
+.pt-sm {
+    padding-top: var(--space-sm);
+}
+
+.pt-md {
+    padding-top: var(--space-md);
+}
+
+.pt-lg {
+    padding-top: var(--space-lg);
+}
+
+.pt-xl {
+    padding-top: var(--space-xl);
+}
+
+.pt-2xl {
+    padding-top: var(--space-2xl);
+}
+
+.pb-sm {
+    padding-bottom: var(--space-sm);
+}
+
+.pb-md {
+    padding-bottom: var(--space-md);
+}
+
+.pb-lg {
+    padding-bottom: var(--space-lg);
+}
+
+.pb-xl {
+    padding-bottom: var(--space-xl);
+}
+
+.pb-2xl {
+    padding-bottom: var(--space-2xl);
+}
+
+/* ==========================================
+   DIVIDERS
+   ========================================== */
+
+.divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-burgundy), var(--color-copper));
+    border-radius: var(--radius-full);
+    margin: var(--space-lg) 0;
+}
+
+.divider--center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divider--long {
+    width: 120px;
+}
+
+/* ==========================================
+   DECORATIVE ELEMENTS
+   ========================================== */
+
+.accent-line {
+    position: relative;
+}
+
+.accent-line::before {
+    content: '';
+    position: absolute;
+    left: -var(--space-xl);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-copper);
+}
+
+/* Background Patterns */
+.bg-pattern {
+    position: relative;
+}
+
+.bg-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 80%, var(--color-cream) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--color-sand) 0%, transparent 50%);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: -1;
+}

@@ -1,0 +1,390 @@
+/*
+ * GCT Website - Animation System
+ * Consistent motion design across all pages
+ */
+
+/* ==========================================
+   BASE ANIMATION SETUP
+   ========================================== */
+
+/* Elements that will animate on scroll */
+[data-reveal] {
+    opacity: 0;
+    transition:
+        opacity var(--duration-slow) var(--ease-default),
+        transform var(--duration-slow) var(--ease-default);
+}
+
+[data-reveal].revealed {
+    opacity: 1;
+    transform: none;
+}
+
+/* ==========================================
+   REVEAL ANIMATIONS
+   ========================================== */
+
+/* Fade Up */
+[data-reveal="fade-up"] {
+    transform: translateY(40px);
+}
+
+/* Fade Down */
+[data-reveal="fade-down"] {
+    transform: translateY(-40px);
+}
+
+/* Fade Left */
+[data-reveal="fade-left"] {
+    transform: translateX(40px);
+}
+
+/* Fade Right */
+[data-reveal="fade-right"] {
+    transform: translateX(-40px);
+}
+
+/* Scale Up */
+[data-reveal="scale"] {
+    transform: scale(0.95);
+}
+
+/* Fade Only */
+[data-reveal="fade"] {
+    /* No transform needed, just opacity animation */
+    transform: none;
+}
+
+/* ==========================================
+   STAGGER DELAYS
+   ========================================== */
+
+[data-delay="100"] {
+    transition-delay: 100ms;
+}
+
+[data-delay="200"] {
+    transition-delay: 200ms;
+}
+
+[data-delay="300"] {
+    transition-delay: 300ms;
+}
+
+[data-delay="400"] {
+    transition-delay: 400ms;
+}
+
+[data-delay="500"] {
+    transition-delay: 500ms;
+}
+
+[data-delay="600"] {
+    transition-delay: 600ms;
+}
+
+/* ==========================================
+   TEXT REVEAL ANIMATION
+   ========================================== */
+
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal__inner {
+    display: inline-block;
+    transform: translateY(100%);
+    transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.text-reveal.revealed .text-reveal__inner {
+    transform: translateY(0);
+}
+
+/* Character by character animation */
+.char-reveal .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity var(--duration-normal) var(--ease-default),
+        transform var(--duration-normal) var(--ease-default);
+}
+
+.char-reveal.revealed .char {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   LINE DRAW ANIMATION
+   ========================================== */
+
+.line-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 1.5s var(--ease-default);
+}
+
+.line-draw.revealed {
+    stroke-dashoffset: 0;
+}
+
+/* Decorative line reveal */
+.line-reveal {
+    position: relative;
+}
+
+.line-reveal::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-burgundy), var(--color-copper));
+    transition: width var(--duration-slow) var(--ease-default);
+}
+
+.line-reveal.revealed::after {
+    width: 100%;
+}
+
+/* ==========================================
+   HOVER ANIMATIONS
+   ========================================== */
+
+/* Link hover underline */
+.link-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-copper);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--duration-normal) var(--ease-default);
+}
+
+.link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Image hover zoom */
+.img-zoom {
+    overflow: hidden;
+}
+
+.img-zoom img {
+    transition: transform var(--duration-slow) var(--ease-default);
+}
+
+.img-zoom:hover img {
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   PARALLAX LAYERS
+   ========================================== */
+
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-layer {
+    position: absolute;
+    will-change: transform;
+}
+
+.parallax-layer--slow {
+    /* Moves slower - appears further back */
+    transform: translateZ(-1px) scale(2);
+}
+
+.parallax-layer--fast {
+    /* Moves faster - appears closer */
+    transform: translateZ(1px);
+}
+
+/* ==========================================
+   LOADING ANIMATIONS
+   ========================================== */
+
+/* Page loader */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-ivory);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity var(--duration-slow) var(--ease-default);
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-cream);
+    border-top-color: var(--color-burgundy);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Content loading skeleton */
+.skeleton {
+    background: linear-gradient(90deg,
+            var(--color-cream) 25%,
+            var(--color-parchment) 50%,
+            var(--color-cream) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ==========================================
+   SCROLL PROGRESS BAR
+   ========================================== */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-burgundy), var(--color-copper));
+    z-index: var(--z-toast);
+    transition: width 50ms linear;
+}
+
+/* ==========================================
+   KEYFRAME ANIMATIONS
+   ========================================== */
+
+/* Subtle float animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(114, 47, 55, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 20px 10px rgba(114, 47, 55, 0);
+    }
+}
+
+.animate-pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn var(--duration-slow) var(--ease-default) forwards;
+}
+
+/* Slide in from bottom */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slideInUp {
+    animation: slideInUp var(--duration-slow) var(--ease-default) forwards;
+}
+
+/* ==========================================
+   INTERACTIVE STATES
+   ========================================== */
+
+/* Button press effect */
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Card tap feedback */
+.card:active {
+    transform: scale(0.99);
+}
+
+/* Focus ring animation */
+@keyframes focusRing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(114, 47, 55, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 0 4px rgba(114, 47, 55, 0);
+    }
+}
+
+.focus-ring:focus {
+    animation: focusRing 0.4s ease-out;
+}
