@@ -67,7 +67,7 @@ function generateNavigation() {
 
   const navItems = [
     { href: rootPath + 'index.html', icon: 'home', label: 'Foundation' },
-    { href: rootPath + 'heritage.html', icon: 'info', label: 'Heritage' },
+    { href: rootPath + 'legacy.html', icon: 'info', label: 'Legacy' },
     {
       href: rootPath + 'pathways.html',
       icon: 'book',
@@ -81,7 +81,7 @@ function generateNavigation() {
       ]
     },
     { href: rootPath + 'enrollment.html', icon: 'user-plus', label: 'Enrollment' },
-    { href: rootPath + 'chronicle.html', icon: 'camera', label: 'Chronicle' },
+    { href: rootPath + 'chronicle.html', icon: 'camera', label: 'Campus Life' },
     { href: rootPath + 'connect.html', icon: 'mail', label: 'Connect' }
   ];
 
@@ -158,7 +158,100 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize back to top button
   initBackToTop();
+
+  // Generate and insert footer
+  generateFooter();
 });
+
+/**
+ * Footer Generation
+ */
+function generateFooter() {
+  const currentYear = new Date().getFullYear();
+
+  const footerHTML = `
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <!-- About Section -->
+          <div class="col-lg-3 col-md-6">
+            <h3 class="footer__heading">About GCT</h3>
+            <p class="footer__text">
+              Government College of Technology, Bhakkar provides quality technical education through PBTE-approved diploma programs, preparing students for successful careers in engineering and technology.
+            </p>
+          </div>
+
+          <!-- Academic Divisions -->
+          <div class="col-lg-3 col-md-6">
+            <h3 class="footer__heading">Academic Divisions</h3>
+            <ul class="footer__links">
+              <li><a href="${rootPath}divisions/computing.html">Computer Information Technology</a></li>
+              <li><a href="${rootPath}divisions/electrical.html">Electrical Technology</a></li>
+              <li><a href="${rootPath}divisions/machinery.html">Mechanical Technology</a></li>
+              <li><a href="${rootPath}divisions/construction.html">Civil Technology</a></li>
+              <li><a href="${rootPath}divisions/circuits.html">Electronics Technology</a></li>
+            </ul>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-3 col-md-6">
+            <h3 class="footer__heading">Quick Links</h3>
+            <ul class="footer__links">
+              <li><a href="${rootPath}index.html">Home</a></li>
+              <li><a href="${rootPath}legacy.html">Legacy</a></li>
+              <li><a href="${rootPath}pathways.html">Programs</a></li>
+              <li><a href="${rootPath}enrollment.html">Admissions</a></li>
+              <li><a href="${rootPath}chronicle.html">Campus Life</a></li>
+              <li><a href="${rootPath}connect.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-lg-3 col-md-6">
+            <h3 class="footer__heading">Contact Information</h3>
+            <ul class="footer__contact">
+              <li>
+                <svg class="footer__icon" viewBox="0 0 24 24" width="14" height="14">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Main Road, Bhakkar, Punjab, Pakistan</span>
+              </li>
+              <li>
+                <svg class="footer__icon" viewBox="0 0 24 24" width="14" height="14">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>+92 (453) 123456</span>
+              </li>
+              <li>
+                <svg class="footer__icon" viewBox="0 0 24 24" width="14" height="14">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>info@gctbhakkar.edu.pk</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer__bottom">
+          <p class="footer__copyright">
+            © ${currentYear} Government College of Technology, Bhakkar. All rights reserved.
+          </p>
+          <p class="footer__credits">
+            Affiliated with <strong>Punjab Board of Technical Education (PBTE)</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+  `;
+
+  const footerPlaceholder = document.getElementById('footer-placeholder');
+  if (footerPlaceholder) {
+    footerPlaceholder.outerHTML = footerHTML;
+  }
+}
 
 /**
  * Back to Top Button

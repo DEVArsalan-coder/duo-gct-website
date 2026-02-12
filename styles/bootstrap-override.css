@@ -210,7 +210,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4px;
+    padding: 0;
     /* Space for gradient border */
 }
 
@@ -232,7 +232,7 @@ button {
     position: absolute;
     inset: 0;
     border-radius: var(--radius-md);
-    padding: 3px;
+    padding: 2px;
     background: linear-gradient(135deg,
             var(--color-burgundy) 0%,
             var(--color-copper) 25%,
@@ -321,7 +321,7 @@ button {
 
 .hero-description {
     font-size: var(--text-lg);
-    color: var(--color-slate);
+    color: rgba(255, 255, 255, 0.9);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-xl);
 }
@@ -432,14 +432,23 @@ button {
 }
 
 .principal-image-placeholder {
-    width: 250px;
-    height: 250px;
-    background: var(--color-cream);
+    width: 280px;
+    height: 280px;
+    background: linear-gradient(135deg, var(--color-burgundy), var(--color-copper));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2px;
     box-shadow: var(--shadow-lg);
+}
+
+.principal-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: var(--color-parchment);
 }
 
 /* Campus Life Cards */
@@ -476,7 +485,34 @@ button {
 /* Section Header Variant for Hero */
 .section-header--hero {
     max-width: 800px;
-    margin-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-header--hero h1,
+.section-header--hero h2,
+.section-header--hero h3 {
+    color: var(--color-ivory);
+}
+
+.section-header--hero .section-eyebrow {
+    color: var(--color-copper);
+}
+
+.section-header--hero .hero-description {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header--hero .hero-actions {
+    justify-content: center;
+}
+
+.section-header--hero .divider {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section-subtitle--left {
@@ -487,9 +523,77 @@ button {
    HERITAGE PAGE STYLES
    ========================================== */
 
-/* Hero Section Variant */
+/* Hero Section Variant For Other Pages */
 .section--hero-alt {
-    min-height: 60vh;
+    height: 60vh;
+    max-height: 60vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.section--hero-alt .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Dark overlay for hero alt pages */
+.section--hero-alt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(17, 14, 21, 0.85) 0%,
+            rgba(114, 47, 55, 0.75) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Background image for landing sections */
+.section--hero-alt .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Ensure content appears above overlay */
+.section--hero-alt .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Make all text bright in landing sections for visibility */
+.section--hero-alt h1,
+.section--hero-alt h2,
+.section--hero-alt p,
+.section--hero-alt .hero-desc,
+.section--hero-alt .section-subtitle {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.section--hero-alt .section-eyebrow {
+    color: var(--color-copper);
+}
+
+.section--hero-alt .divider {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .section--hero-alt {
+        height: 50vh;
+        max-height: 50vh;
+    }
 }
 
 /* Mission and Vision Cards */
@@ -602,7 +706,6 @@ button {
     width: 100px;
     height: 100px;
     margin: 0 auto var(--space-lg);
-    background: linear-gradient(135deg, var(--color-burgundy), var(--color-copper));
     border-radius: 50%;
 }
 
@@ -877,6 +980,24 @@ button {
         width: 24px;
         height: 24px;
     }
+}
+
+@media (max-width: 768px) {
+    .section--hero-alt {
+        min-height: 50vh;
+    }
+}
+
+/* Division page hero backgrounds */
+.section--hero-division {
+    background: linear-gradient(135deg, var(--color-parchment), var(--color-cream));
+}
+
+/* Centered grid wrapper */
+.grid--centered {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ==========================================

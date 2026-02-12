@@ -265,7 +265,7 @@ function initTestimonialCarousel() {
 }
 
 /**
- * Generate Footer HTML
+ * Generate Footer HTML - SIMPLE VERSION
  */
 function generateFooter() {
     const currentYear = new Date().getFullYear();
@@ -274,63 +274,53 @@ function generateFooter() {
     <footer class="footer">
       <div class="container">
         <div class="footer__grid">
-          <div class="footer__brand">
-            <h3 style="color: var(--color-ivory); font-size: var(--text-2xl);">
-              Government College<br>of Technology
-            </h3>
-            <p class="footer__brand-text">
-              Cultivating excellence in technical education since establishment. 
-              Empowering students with practical skills and innovative thinking.
+          
+          <div class="footer__column">
+            <h4 class="footer__heading">About GCT</h4>
+            <p class="footer__text">
+              Government College of Technology, Bhakkar provides quality technical 
+              education through PBTE-approved diploma programs.
             </p>
           </div>
           
           <div class="footer__column">
-            <h4 class="footer__heading">Navigation</h4>
+            <h4 class="footer__heading">Quick Links</h4>
             <ul class="footer__links">
-              <li><a href="index.html" class="footer__link">Foundation</a></li>
-              <li><a href="heritage.html" class="footer__link">Institutional Heritage</a></li>
-              <li><a href="pathways.html" class="footer__link">Academic Pathways</a></li>
-              <li><a href="enrollment.html" class="footer__link">Enrollment Gateway</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="legacy.html">Legacy</a></li>
+              <li><a href="pathways.html">Programs</a></li>
+              <li><a href="enrollment.html">Admissions</a></li>
+              <li><a href="chronicle.html">Campus Life</a></li>
+              <li><a href="connect.html">Contact</a></li>
             </ul>
           </div>
           
           <div class="footer__column">
             <h4 class="footer__heading">Divisions</h4>
             <ul class="footer__links">
-              <li><a href="divisions/computing.html" class="footer__link">Computing Division</a></li>
-              <li><a href="divisions/electrical.html" class="footer__link">Electrical Division</a></li>
-              <li><a href="divisions/machinery.html" class="footer__link">Machinery Division</a></li>
-              <li><a href="divisions/construction.html" class="footer__link">Construction Division</a></li>
+              <li><a href="divisions/computing.html">Computer IT</a></li>
+              <li><a href="divisions/electrical.html">Electrical</a></li>
+              <li><a href="divisions/machinery.html">Mechanical</a></li>
+              <li><a href="divisions/construction.html">Civil</a></li>
+              <li><a href="divisions/circuits.html">Electronics</a></li>
             </ul>
           </div>
           
           <div class="footer__column">
-            <h4 class="footer__heading">Reach Us</h4>
-            <ul class="footer__links">
-              <li><a href="connect.html" class="footer__link">Contact Information</a></li>
-              <li><a href="chronicle.html" class="footer__link">Campus Chronicle</a></li>
-              <li><a href="#" class="footer__link">Student Resources</a></li>
-              <li><a href="#" class="footer__link">Academic Calendar</a></li>
-            </ul>
+            <h4 class="footer__heading">Contact</h4>
+            <p class="footer__text">
+              Main Road, Bhakkar<br>
+              Punjab, Pakistan<br><br>
+              Phone: +92 (453) 123456<br>
+              Email: info@gctbhakkar.edu.pk
+            </p>
           </div>
+          
         </div>
         
         <div class="footer__bottom">
-          <p class="footer__copyright">
-            © ${currentYear} Government College of Technology, Bhakkar. All rights reserved.
-          </p>
-          
-          <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Facebook">
-              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-            <a href="#" class="footer__social-link" aria-label="Twitter">
-              <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-            </a>
-            <a href="#" class="footer__social-link" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-          </div>
+          <p>© ${currentYear} Government College of Technology, Bhakkar</p>
+          <p>Affiliated with Punjab Board of Technical Education (PBTE)</p>
         </div>
       </div>
     </footer>
@@ -346,7 +336,7 @@ ready(() => {
         // Append footer to main content
         const mainContent = document.querySelector('.main-content');
         if (mainContent) {
-            mainContent.insertAdjacentHTML('beforeend', generateFooter());
+            mainContent.insertAdjacentHTML('afterend', generateFooter());
         }
     }
 });

@@ -53,11 +53,30 @@
         <main class="main-content" id="main-content">
 
             <!-- Hero Section -->
-            <section class="section section--hero bg-pattern">
-                <div class="container">
-                    <div class="grid grid--editorial">
-                        <div class="section-header section-header--left section-header--hero">
-                            <span class="section-eyebrow" data-reveal="fade-up">Excellence in Technical Education</span>
+            <section class="section section--hero section--hero-main">
+                <!-- Bootstrap Carousel Background -->
+                <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel"
+                    data-bs-interval="5000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/images/GCT-Front-View.jpeg" alt="GCT Campus" class="hero-carousel__image">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/GCT-back-view.jpeg" alt="GCT Back view" class="hero-carousel__image">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/GCT-wide-angle-view.jpeg" alt="GCT Wide view"
+                                class="hero-carousel__image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Content Overlay -->
+                <div class="hero-content-overlay">
+                    <div class="container">
+                        <div class="section-header section-header--center section-header--hero">
+                            <span class="section-eyebrow" data-reveal="fade-up">Excellence in Technical
+                                Education</span>
                             <h1 data-reveal="fade-up" data-delay="100">
                                 Shape Your<br>
                                 <span class="text-gradient">Technical</span><br>
@@ -72,30 +91,6 @@
                             <div class="hero-actions flex gap-md" data-reveal="fade-up" data-delay="400">
                                 <a href="pathways.html" class="btn btn--primary btn--lg">Explore Pathways</a>
                                 <a href="enrollment.html" class="btn btn--secondary btn--lg">Begin Your Journey</a>
-                            </div>
-                        </div>
-                        <div class="hero-visual" data-reveal="fade-left" data-delay="200">
-                            <div class="hero-gallery">
-                                <div class="hero-gallery__item hero-gallery__item--large">
-                                    <div class="image-placeholder image-placeholder--4x5">
-                                        <img src="" alt="Campus Life">
-                                    </div>
-                                </div>
-                                <div class="hero-gallery__item hero-gallery__item--small-top">
-                                    <div class="image-placeholder image-placeholder--1x1">
-                                        <img src="" alt="Laboratory Facilities">
-                                    </div>
-                                </div>
-                                <div class="hero-gallery__item hero-gallery__item--small-bottom">
-                                    <div class="image-placeholder image-placeholder--3x2">
-                                        <img src="" alt="Technical Workshops">
-                                    </div>
-                                </div>
-                                <div class="hero-gallery__item hero-gallery__item--tall">
-                                    <div class="image-placeholder image-placeholder--2x3">
-                                        <img src="" alt="GCT Students">
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -133,11 +128,11 @@
                         <div class="about-visual" data-reveal="fade-right">
                             <div class="about-image-grid">
                                 <div class="image-placeholder image-placeholder--1x1">
-                                    <img src="" alt="GCT Campus Building">
+                                    <img src="/images/GCT-Front-View.jpeg" alt="GCT Campus Building">
                                     <span class="image-placeholder__label">Campus View</span>
                                 </div>
                                 <div class="image-placeholder image-placeholder--1x1">
-                                    <img src="" alt="Students in Laboratory">
+                                    <img src="/images/student-Community.jpeg" alt="Students Community">
                                     <span class="image-placeholder__label">Lab Activity</span>
                                 </div>
                             </div>
@@ -157,7 +152,7 @@
                                 partnerships, we ensure our students receive education that matters in
                                 the real world.
                             </p>
-                            <a href="heritage.html" class="btn btn--secondary mt-lg" data-reveal="fade-up"
+                            <a href="legacy.html" class="btn btn--secondary mt-lg" data-reveal="fade-up"
                                 data-delay="500">
                                 Discover Our Story
                             </a>
@@ -190,7 +185,7 @@
                         </div>
                         <div class="principal-visual" data-reveal="fade-left">
                             <div class="image-placeholder image-placeholder--1x1 principal-image-placeholder">
-                                <img src="" alt="Prof. Javed Ali Bhidwal - Principal">
+                                <img src="/images/principal-picture.jpg" alt="Prof. Javed Ali Bhidwal - Principal">
                             </div>
                         </div>
                     </div>
@@ -563,6 +558,9 @@
 
         </main>
     </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="scripts/navigation.js"></script>
     <script src="scripts/reveals.js"></script>
